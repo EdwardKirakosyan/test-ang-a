@@ -16,6 +16,8 @@ import { Component } from '@angular/core';
 
     <button (click)="save()">Save</button>
 
+    <button (click)="createUser($event)">Submit</button>
+
     <ul>
       @for (ingredient of ingredientList; track ingredient.name ) {
       <li>{{ ingredient.name }}</li>
@@ -29,6 +31,9 @@ import { Component } from '@angular/core';
   `,
 })
 export class TodoComponent {
+  createUser($event: MouseEvent) {
+    console.log($event.target);
+  }
   announcement = 'Hello again Angular!';
 
   save() {

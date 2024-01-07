@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { TodoComponent } from './todo/todo.component';
+import { SerService } from './services/ser.service';
 
 @Component({
   selector: 'app-root',
@@ -12,4 +13,7 @@ import { TodoComponent } from './todo/todo.component';
     <app-todo />
   `,
 })
-export class AppComponent {}
+export class AppComponent {
+  private ser = inject(SerService);
+  total = this.ser.add(40, 22);
+}
